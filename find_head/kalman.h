@@ -145,7 +145,7 @@ void kalman(Obj& last_obj, Obj& cur_obj, Mat& P)
 		{
 			if (last_obj[i]->undetected_cnt <= 1 && last_obj[i]->X >= -110 && last_obj[i]->X <= 110 && last_obj[i]->Y >= -70 && last_obj[i]->Y <= 70)
 			{
-				cur_obj.push(last_obj[i]->X, last_obj[i]->Y, last_obj[i]->W, last_obj[i]->H, last_obj[i]->height);
+				cur_obj.push(last_obj[i]->X, last_obj[i]->Y, last_obj[i]->upper, last_obj[i]->lower, last_obj[i]->left, last_obj[i]->right, last_obj[i]->height);
 				cur_obj[cur_num + last_cnt]->Vx = last_obj[i]->Vx;
 				cur_obj[cur_num + last_cnt]->Vy = last_obj[i]->Vy;
 				cur_obj[cur_num + last_cnt]->No = last_obj[i]->No;

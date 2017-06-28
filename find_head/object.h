@@ -11,8 +11,10 @@ struct ObjNode
 	int Y;
 	double Vx;
 	double Vy;
-	int W;
-	int H;
+	int upper;
+	int lower;
+	int left;
+	int right;
 	float height;
 	int No;
 	int forward_match;
@@ -28,12 +30,12 @@ class Obj
 public:
 	Obj() :first(NULL), length(0), last(NULL){}
 
-	void push(int x, int y, int w, int h, float height)
+	void push(int x, int y, int up, int low, int l, int r, float height)
 	{
 
 		ObjNode *newnode = new ObjNode;
 		length++;
-		newnode->X = x; newnode->Y = y; newnode->W = w; newnode->H = h; newnode->height = height; newnode->No = length;
+		newnode->X = x; newnode->Y = y; newnode->upper = up; newnode->lower = low; newnode->left = l; newnode->right = r; newnode->height = height; newnode->No = length;
 		if (first == NULL)
 		{
 			if (newnode == NULL) exit(0);
@@ -87,7 +89,7 @@ public:
 		ObjNode* p = r.first;
 		while (p != NULL)
 		{
-			this->push(p->X, p->Y, p->W, p->H, p->height);
+			this->push(p->X, p->Y, p->upper, p->lower, p->left, p->right, p->height);
 			ObjNode* cur = this->last;
 			cur->Vx = p->Vx;
 			cur->Vy = p->Vy;
@@ -107,7 +109,7 @@ public:
 		this->empty();
 		while (p != NULL)
 		{
-			this->push(p->X, p->Y, p->W, p->H, p->height);
+			this->push(p->X, p->Y, p->upper, p->lower, p->left, p->right, p->height);
 			ObjNode* cur = this->last;
 			cur->Vx = p->Vx;
 			cur->Vy = p->Vy;

@@ -44,7 +44,7 @@ int main()
 	double th_Area1 = 230;//control noise
 	double th_Area2 = 190;//control further segment
 
-	for (int n = 356; n <= 978; n++)
+	for (int n = 935; n <= 978; n++)
 	{
 		cout << "ตฺ" << n << "ึก:";
 		char imgname[20];
@@ -69,7 +69,7 @@ int main()
 
 		Obj object;
 		
-		paramsCalculate(getHead, object, ProjectMatrixX, ProjectMatrixHeight);
+		paramsCalculate(heightmap_d, heightmap_head, object);
 		
 		static Obj last_obj;
 		
